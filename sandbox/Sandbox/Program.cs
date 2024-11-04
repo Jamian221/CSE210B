@@ -2,8 +2,16 @@ using System;
 
 class Program
 {
+    static int AddNumbers(int n1, int n2){
+        int total = n1 + n2;
+        return total;
+    }
     static void Main(string[] args)
     {
+        int total = AddNumbers(20, 30);
+        Console.WriteLine(total);
+
+
         // // declare variables
         // int age;
         // do
@@ -14,15 +22,15 @@ class Program
 
         // }while( age < 0 || age > 125);
 
-        List <string> myColors = new List<string>();
+        // List <string> myColors = new List<string>();
 
-        myColors.Add("Red");
-        myColors.Add("Green");
-        myColors.Add("Blue");
+        // myColors.Add("Red");
+        // myColors.Add("Green");
+        // myColors.Add("Blue");
 
-        foreach(string color in myColors)
-        {
-            Console.WriteLine(color);
-        }
+        // foreach(string color in myColors)
+        // {
+        //     Console.WriteLine(color);
+        // }
     }
 }
