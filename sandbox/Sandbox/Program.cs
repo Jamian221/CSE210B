@@ -6,15 +6,37 @@ class Program
     {
         private double radius;
 
-        public Circle(double radius)
-        {
+        public Circle(double radius){
             this.radius = radius;
         }
 
-        public double GetArea()
-        {
+        public double GetArea(){
             return Math.PI * radius * radius;
         }
+
+        public double GetDiameter(){
+            return 2 * radius;
+        }
+
+        public double GetCircumference(){
+            return Math.PI * 2 * radius;
+        }
+        
+        public double GetRadius(){
+            return radius;
+        }
+        public void SetRadius(double radius){
+            this.radius = radius;
+        }
+
+        public void Display(){
+            Console.WriteLine($"Area is: {GetArea()}");
+            Console.WriteLine($"Radius is: {GetRadius()}");
+            Console.WriteLine($"Diameter is: {GetDiameter()}");
+            Console.WriteLine($"Circumference is: {GetCircumference()}");
+        }
+
+
     }
     static void Main(string[] args)
     {
@@ -22,7 +44,10 @@ class Program
         int x = 10;
 
         Circle myCircle = new Circle(x);
-
-        Console.WriteLine(myCircle.GetArea());
+        Console.WriteLine("First circle");
+        myCircle.Display();
+        myCircle.SetRadius(x+100);
+        Console.WriteLine("Second Circle");
+        myCircle.Display();
     }
 }
