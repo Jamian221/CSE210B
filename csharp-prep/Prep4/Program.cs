@@ -26,5 +26,7 @@ class Program
             newNumber = int.Parse(Console.ReadLine());
             numbers.Add(newNumber);
         }while (newNumber != 0);
+        total = AddNumbers(numbers);
+        Console.WriteLine($"Total: {total}");
     }
 }
