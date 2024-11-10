@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Xml.Schema;
 
 /* 
@@ -23,6 +24,11 @@ class Program
         return name;
     }
 
+    static int SquareNumber(int number){
+        int squaredNumber = number * number;
+        return number;
+    }
+
     static int PromptUserNumber(){
         Console.Write("What is your favorite number? ");
         int number = int.Parse(Console.ReadLine());
@@ -34,6 +40,7 @@ class Program
         DisplayWelcome();
         string name = PromptUserName();
         int number = PromptUserNumber();
+        int squaredNumber = SquareNumber(number);
         
     }
 }
