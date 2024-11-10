@@ -30,8 +30,8 @@ class Program
             numbers.Add(newNumber);
         }while (newNumber != 0);
         total = AddNumbers(numbers);
-        Console.WriteLine($"Total: {total}");
-        average =  
+        average = total / (numbers.Count - 1);
+        Console.WriteLine($"Total: {total}, biggest number: {biggestNumber}, average: {average}");
         
     }
 }
