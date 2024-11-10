@@ -17,22 +17,22 @@ class Program
     static void DisplayWelcome(){
         Console.WriteLine("Welcome to the Program!");
     }
-
     static string PromptUserName(){
         Console.Write("What is your name? ");
         string name = Console.ReadLine();
         return name;
     }
-
     static int SquareNumber(int number){
         int squaredNumber = number * number;
-        return number;
+        return squaredNumber;
     }
-
     static int PromptUserNumber(){
         Console.Write("What is your favorite number? ");
         int number = int.Parse(Console.ReadLine());
         return number;
+    }
+    static void DisplayResult(string name, int squaredNumber){
+        Console.Write($"Your name is {name} and your favorite number squared is {squaredNumber}.");
     }
 
     static void Main(string[] args)
@@ -41,6 +41,6 @@ class Program
         string name = PromptUserName();
         int number = PromptUserNumber();
         int squaredNumber = SquareNumber(number);
-        
+        DisplayResult(name, squaredNumber);
     }
 }
