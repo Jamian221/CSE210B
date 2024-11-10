@@ -1,4 +1,5 @@
 using System;
+using System.Xml.Schema;
 
 /* 
 DisplayWelcome - Displays the message, "Welcome to the Program!"
@@ -6,7 +7,7 @@ PromptUserName - Asks for and returns the user's name (as a string)
 PromptUserNumber - Asks for and returns the user's favorite number (as an integer)
 SquareNumber - Accepts an integer as a parameter and returns that number squared (as an integer)
 DisplayResult - Accepts the user's name and the squared number and displays them.
-*/ 
+*/
 
 
 
@@ -22,9 +23,17 @@ class Program
         return name;
     }
 
+    static int PromptUserNumber(){
+        Console.Write("What is your favorite number? ");
+        int number = int.Parse(Console.ReadLine());
+        return number;
+    }
+
     static void Main(string[] args)
     {
         DisplayWelcome();
         string name = PromptUserName();
+        int number = PromptUserNumber();
+        
     }
 }
