@@ -28,5 +28,6 @@ class Program
         }while (newNumber != 0);
         total = AddNumbers(numbers);
         Console.WriteLine($"Total: {total}");
+        
     }
 }
