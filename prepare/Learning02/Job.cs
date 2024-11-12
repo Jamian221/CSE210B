@@ -12,4 +12,7 @@ class Job
         this.companyName = companyName;
         this.jobTitle = jobTitle;
     }
+    public void Display(){
+        Console.WriteLine($"Company: {companyName}, job: {jobTitle}, started: {jobStart}, ended: {jobEnd}");
+    }
 }
