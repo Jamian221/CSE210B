@@ -1,0 +1,36 @@
+ENTRY:
+    Methods:
+        CreateEntry()
+            GetTime()
+            DisplayPrompt()
+            GetInput()
+    Attributes:
+        _prompts
+        _date
+        _userInput
+
+JOURNAL:
+    Methods:
+        DisplayAllEntries()
+        SaveEntriesToFile()
+        ReadEntriesFromFile()
+        CreateEntry()
+    Attributes:
+        _entries: List<Entry>
+
+MENU:
+    Methods:
+        DisplayMenu()
+            Write()
+            DisplayEntries()
+            Load()
+            Save()
+            Quit()
+        UserSelect()
+            
+    Attributes:
+        _menuOptions: List<menuOptions>
+        _menuChoice
+
+PROGRAM:
+    *See attached .PDF
