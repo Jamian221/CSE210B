@@ -1,6 +1,7 @@
 class Journal
 {
-    public void DisplayAllEntried()
+    private List<string> entries = new List<string>();
+    public void DisplayAllEntries()
     {
 
     }
@@ -14,6 +15,6 @@ class Journal
     }
     public void ReadEntriesFromFile()
     {
-        
+
     }
 }
