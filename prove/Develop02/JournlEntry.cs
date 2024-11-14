@@ -20,6 +20,12 @@ class JournalEntry
         DisplayPrompt();
         GetInput();
     }
+    public JournalEntry(string date, string prompt, string userInput)
+    {
+        _date = date;
+        _userInput = userInput;
+        _prompt = prompt;
+    }
     public void GetTime()
     {
         DateTime now = DateTime.Now;
