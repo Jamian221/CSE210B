@@ -1,8 +1,7 @@
-using System.Runtime.InteropServices;
-
 class Menu
 {
-    private List<string> _menuOptions = new List<string>();
+    private List<string> _menuOptions = new List<string>{"1. Write", "2. Save", "3. Load", "4. Display Entries", "5. Quit"};
+    
     private int _menuChoice;
     public void DisplayMenu(){
         Console.WriteLine("Wecome to your journal! what would you like to do today?");
@@ -11,7 +10,6 @@ class Menu
         }
 
     }
-
     public void GetInput(){
 
     }
