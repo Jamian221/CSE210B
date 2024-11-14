@@ -1,10 +1,9 @@
 class Journal
 {
-    private List<string> entries = new List<string>();
-    private List<string> prompts = new List<string>();
+    private List<JournalEntry> entries = new List<JournalEntry>();
     public void DisplayAllEntries()
     {
-        
+
     }
     public void WriteEntriesToFile(string fileName)
     {
@@ -18,7 +17,7 @@ class Journal
     }
     public void AddEntry(JournalEntry entry)
     {
-
+        entries.Add(entry);
     }
     public void ReadEntriesFromFile()
     {
