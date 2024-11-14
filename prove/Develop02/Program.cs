@@ -16,7 +16,7 @@ class Program
                 journal.AddEntry(Entry);
 
             }else if (menuChoice == 2){ //saves
-
+                
             }else if (menuChoice == 3){ //loads
 
             }else if (menuChoice == 4){ //Displays entries
