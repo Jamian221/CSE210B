@@ -11,19 +11,19 @@ class Program
             menu.DisplayMenu();
             menuChoice = menu.GetInput();
 
-            if (menuChoice == 1){
+            if (menuChoice == 1){       //Creates a new entry
                 JournalEntry Entry = new JournalEntry();
                 journal.AddEntry(Entry);
 
-            }else if (menuChoice == 2){
+            }else if (menuChoice == 2){ //saves
 
-            }else if (menuChoice == 3){
+            }else if (menuChoice == 3){ //loads
 
-            }else if (menuChoice == 4){
+            }else if (menuChoice == 4){ //Displays entries
                 journal.DisplayAllEntries();
-            }else if (menuChoice == 5){
+            }else if (menuChoice == 5){ //quits the program
                 menu.Quit();
-            }else Console.WriteLine("Not a valid input, please try again");
+            }else Console.WriteLine("Not a valid input, please try again");//they inputed something wrong, isn't it obvious?
         }
     }
 }
