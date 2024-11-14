@@ -16,9 +16,9 @@ class Program
                 journal.AddEntry(Entry);
 
             }else if (menuChoice == 2){ //saves
-                
+                journal.WriteEntriesToFile();
             }else if (menuChoice == 3){ //loads
-
+                journal.ReadEntriesFromFile();
             }else if (menuChoice == 4){ //Displays entries
                 journal.DisplayAllEntries();
             }else if (menuChoice == 5){ //quits the program

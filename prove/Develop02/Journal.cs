@@ -10,13 +10,14 @@ class Journal
             entry.EntryToString();
         }
     }
-    private void GetFileName(string prompt){
+    private string GetFileName(string prompt){
         Console.Write(prompt);
-        _fileName = Console.ReadLine();
+        string fileName = Console.ReadLine();
+        return fileName;
     }
-    public void WriteEntriesToFile(string fileName)
+    public void WriteEntriesToFile()
     {
-        GetFileName("What file would you like to save to? ");
+        string fileName = GetFileName("What file would you like to save to? ");
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
             foreach(JournalEntry entry in _entries)
@@ -31,17 +32,18 @@ class Journal
     }
     public void ReadEntriesFromFile()
     {
-        // string[] lines = System.IO.File.ReadAllLines(fileName);
+        string fileName = GetFileName("What file would you like to read from? ");
+        string[] lines = System.IO.File.ReadAllLines(fileName);
 
-        // foreach(string line in lines){
-        //     string[] parts = line.Split("#");
+        foreach(string line in lines){
+            string[] parts = line.Split("#");
 
-        //     string date = parts[0];
-        //     string question = parts[1];
-        //     string entryText = parts[2];
+            string date = parts[0];
+            string question = parts[1];
+            string entryText = parts[2];
 
-        //     JournalEntry entry = new JournalEntry(date, question, entryText);
-        //     this.AddEntry(entry);
-        // }
+            JournalEntry entry = new JournalEntry(date, question, entryText);
+            this.AddEntry(entry);
+        }
     }
 }
