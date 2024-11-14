@@ -5,12 +5,14 @@ class Program
     static void Main(string[] args)
     {
         int menuChoice;
+        Journal journal = new Journal();
         Menu menu = new Menu();
         menu.DisplayMenu();
         menuChoice = menu.GetInput();
 
         if (menuChoice == 1){
             JournalEntry Entry = new JournalEntry();
+            journal.AddEntry(Entry);
 
         }else if (menuChoice == 2){
 

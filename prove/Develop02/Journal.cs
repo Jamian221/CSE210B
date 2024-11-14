@@ -3,17 +3,19 @@ class Journal
     private List<JournalEntry> entries = new List<JournalEntry>();
     public void DisplayAllEntries()
     {
-
+        foreach (JournalEntry entry in entries){
+            entry.EntryToString();
+        }
     }
     public void WriteEntriesToFile(string fileName)
     {
-        // using (StreamWriter outputFile = new StreamWriter(fileName))
-        // {
-        //     foreach(JournalEntry entry in entries)
-        //     {
-        //         outputFile.WriteLine(entry.ToString());
-        //     }
-        // }
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            foreach(JournalEntry entry in entries)
+            {
+                outputFile.WriteLine(entry.ToString());
+            }
+        }
     }
     public void AddEntry(JournalEntry entry)
     {
