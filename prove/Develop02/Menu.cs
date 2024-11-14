@@ -1,3 +1,5 @@
+using System.Net.Quic;
+
 class Menu
 {
     private List<string> _menuOptions = new List<string>{"1. Write", "2. Save", "3. Load", "4. Display Entries", "5. Quit"};
@@ -21,7 +23,7 @@ class Menu
 
     }
     public void Quit(){
-
+        Environment.Exit(0);
     }
     public void DisplayEntries(){
 
