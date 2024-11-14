@@ -10,6 +10,7 @@ class Program
         menuChoice = menu.GetInput();
 
         if (menuChoice == 1){
+            JournalEntry Entry = new JournalEntry();
 
         }else if (menuChoice == 2){
 
