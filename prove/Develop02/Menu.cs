@@ -10,9 +10,10 @@ class Menu
         }
 
     }
-    public void GetInput(){
-
-    }
+    public int GetInput(){
+        _menuChoice = int.Parse(Console.ReadLine());
+        return _menuChoice;
+    }  
     public void Save(){
 
     }
