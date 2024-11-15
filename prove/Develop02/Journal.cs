@@ -1,13 +1,13 @@
-using System.IO.Enumeration;
+using System.IO;
+using System.Runtime.InteropServices;
 
 class Journal
 {
     private List<JournalEntry> _entries = new List<JournalEntry>();
-    private string _fileName;
     public void DisplayAllEntries()
     {
         foreach (JournalEntry entry in _entries){
-            entry.EntryToString();
+            Console.WriteLine(entry.EntryDisplay());
         }
     }
     private string GetFileName(string prompt){
@@ -19,11 +19,16 @@ class Journal
     {
         string fileName = GetFileName("What file would you like to save to? ");
         using (StreamWriter outputFile = new StreamWriter(fileName))
+
         {
             foreach(JournalEntry entry in _entries)
             {
-                outputFile.WriteLine(entry.ToString());
+                string output = entry.EntryToString();
+                Console.WriteLine(output);
+                outputFile.WriteLine(output);
+                
             }
+            _entries.Clear();
         }
     }
     public void AddEntry(JournalEntry entry)
@@ -33,7 +38,8 @@ class Journal
     public void ReadEntriesFromFile()
     {
         string fileName = GetFileName("What file would you like to read from? ");
-        string[] lines = System.IO.File.ReadAllLines(fileName);
+        string[] lines = File.ReadAllLines(fileName);
+
 
         foreach(string line in lines){
             string[] parts = line.Split("#");
@@ -43,7 +49,7 @@ class Journal
             string entryText = parts[2];
 
             JournalEntry entry = new JournalEntry(date, question, entryText);
-            this.AddEntry(entry);
+            AddEntry(entry);
         }
     }
 }

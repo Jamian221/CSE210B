@@ -41,7 +41,12 @@ class JournalEntry
     {
         _userInput = Console.ReadLine();
     }
-    public void EntryToString(){
-        Console.WriteLine($"{_date} - {_prompt} {_userInput}");
+    public string EntryToString(){
+        string bob = $"{_date}#{_prompt}#{_userInput}";
+        return bob;
+    }
+    public string EntryDisplay(){
+        string displayString = $"{_date} | {_prompt} | {_userInput}";
+        return displayString;
     }
 }
