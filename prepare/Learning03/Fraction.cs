@@ -1,3 +1,5 @@
+using System.Dynamic;
+
 class Fraction{
     private int _numerator;
     private int _denominator;
@@ -17,6 +19,15 @@ class Fraction{
     public int GetDenominator(){
         return _denominator;
     }
-    
+    public void SetDenominator(int denominator){
+        _denominator = denominator;
+    }
+
+    public string GetFractionString(){
+        return $"{GetNumerator()} / {GetDenominator()}";
+    }
+    public double GetDecimalValue(){
+        return GetNumerator() / GetDenominator();
+    }
 
 }
