@@ -1,19 +1,27 @@
-// class Scripture{
-//     Scripture(string reference, string scriptureString){
-//         Reference _reference = new(reference);
-//         string[] _scriptureWords = scriptureString.Split(" ");
-//         foreach (string word in _scriptureWords){
-//             // create word class for each word and put in list
-//         }
-//     }
+class Scripture{
+    private Reference _reference;
+    // reference variable 
+    private List<Word> _words = new List<Word>();
+    // creates a list of words as a class
+    public Scripture(string reference, string scriptureString){
+        // creates the reference
+        _reference = new Reference(reference);
 
-//     public void DisplayScripture(){
-//         Console.Clear();
-//         DisplayReference();
-//         foreach Word word in _words{
-//             Console.Write(" ");
-//             word.DisplayWord();
-//         }
-//         Console.WriteLine(".");
-//     }
-// }
+        // splits the scripture into individual words
+        string[] _scriptureWords = scriptureString.Split(" ");
+
+        // add each word in the scripture to the word list
+        foreach (string word in _scriptureWords){
+            _words.Add(new Word(word));
+        }
+    }
+
+    public void DisplayScripture(){
+        Console.Clear();
+        Console.Write($"{_reference.DisplayReference()} -");
+        foreach (Word word in _words){
+            Console.Write($" {word.GetWord()}");
+        }
+        Console.WriteLine(".");
+    }
+}

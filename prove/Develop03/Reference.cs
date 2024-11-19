@@ -3,4 +3,7 @@ class Reference{
     public Reference(string reference){
         _reference = reference;
     }
+    public string DisplayReference(){
+        return _reference;
+    }
 }
