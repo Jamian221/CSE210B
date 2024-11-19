@@ -56,4 +56,8 @@ class Scripture{
             randomWord.HideWord();
         }
     }
+    public bool CheckIfDone(){
+        if (_hiddenWordAmount == 0) return true;
+        else return false;
+    }
 }
