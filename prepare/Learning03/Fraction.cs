@@ -17,14 +17,14 @@ class Fraction{
         _denominator = 1;
     }
 
-    private int GetNumerator()
+    public int GetNumerator()
     {
         return _numerator;
     }
     public void SetNumerator(int numerator){
         _numerator = numerator;
     }
-    private int GetDenominator(){
+    public int GetDenominator(){
         return _denominator;
     }
     public void SetDenominator(int denominator){
