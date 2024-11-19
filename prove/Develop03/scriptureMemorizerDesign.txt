@@ -1,0 +1,22 @@
+class Scripture 
+    attributes
+        _reference         Reference class
+        _wordlist          list of word class
+        _scriptureString   string
+    methods
+        DisplayScripture()
+        HideWords()
+
+class Reference
+    attributes
+        _reference
+    methods 
+        DisplayReference()
+
+class word
+    attributes
+        _word     string
+        _isHidden bool
+    methods
+        HideWord()
+        DisplayWord()
