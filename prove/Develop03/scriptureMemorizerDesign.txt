@@ -4,6 +4,7 @@ class Scripture
         _wordlist          list of word class
         _scriptureString   string
     methods
+        Scripture(reference:string, scriptureString:string)
         DisplayScripture()
         HideWords()
 
@@ -11,13 +12,15 @@ class Reference
     attributes
         _reference  string
     methods 
+        Reference(reference:string)
         DisplayReference()
 
-class word
+class Word
     attributes
         _word            string
         _underscoreWord  string
         _isHidden        bool
     methods
+        Word(word:string)
         HideWord()
         DisplayWord()
