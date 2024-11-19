@@ -21,4 +21,7 @@ class Word{
     public void HideWord(){
         _isHidden = true;
     }
+    public bool CheckIfHidden(){
+        return _isHidden;
+    }
 }

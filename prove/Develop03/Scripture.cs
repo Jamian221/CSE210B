@@ -1,8 +1,12 @@
 class Scripture{
+    // attributes
     private Reference _reference;
     // reference variable 
     private List<Word> _words = new List<Word>();
     // creates a list of words as a class
+
+    private Random random = new Random();
+
     public Scripture(string reference, string scriptureString){
         // creates the reference
         _reference = new Reference(reference);
@@ -25,6 +29,15 @@ class Scripture{
         foreach (Word word in _words){
             Console.Write($" {word.GetWord()}");
         }
-        Console.WriteLine(".");
+        Console.WriteLine();
+    }
+    public void HideWords(){
+        for (int i = 0; i < 3; i++){
+            // creates a random index for the word list
+            int randomIndex = random.Next(0, _words.Count);
+            // select a random item from the list and remove it
+            Word randomWord = _words[randomIndex];
+            randomWord.HideWord();
+        }
     }
 }
