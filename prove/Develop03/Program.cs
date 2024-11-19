@@ -22,8 +22,7 @@ class Program
             //display scripture
             scripture.DisplayScripture();
             //checks if the program is done
-            finish = scripture.CheckIfDone();
-            
+            finish = scripture.CheckIfDone();   
         }
     }
 }
