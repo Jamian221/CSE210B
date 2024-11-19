@@ -17,8 +17,11 @@ class Scripture{
     }
 
     public void DisplayScripture(){
+        // clears previous iteration of the scripture
         Console.Clear();
+        // prints the reference
         Console.Write($"{_reference.DisplayReference()} -");
+        // prints each word individually
         foreach (Word word in _words){
             Console.Write($" {word.GetWord()}");
         }
