@@ -32,10 +32,13 @@ class Fraction{
     }
 
     public string GetFractionString(){
-        return $"{GetNumerator()} / {GetDenominator()}";
+        return $"{_numerator} / {_denominator}";
     }
     public double GetDecimalValue(){
-        return GetNumerator() / GetDenominator();
-    }
+        double numerator = _numerator;
+        double denominator = _denominator;
+        double thingy = numerator / denominator;
+        return thingy;
+    }   
 
 }
