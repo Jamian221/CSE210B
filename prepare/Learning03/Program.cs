@@ -18,22 +18,22 @@ class Program
         // noArgument.SetNumerator(5);
         // Console.WriteLine($"numertor = {noArgument.GetNumerator()} Denominator = {noArgument.GetDenominator()}");
 
-        Fraction one = new Fraction();
+        Fraction one = new();
         Console.WriteLine(one.GetFractionString());
         Console.WriteLine(one.GetDecimalValue());
         Console.WriteLine();
 
-        Fraction five = new Fraction(5);
+        Fraction five = new(5);
         Console.WriteLine(five.GetFractionString());
         Console.WriteLine(five.GetDecimalValue());
         Console.WriteLine();
 
-        Fraction threeFourths = new Fraction(3, 4);
+        Fraction threeFourths = new(3, 4);
         Console.WriteLine(threeFourths.GetFractionString());
         Console.WriteLine(threeFourths.GetDecimalValue());
         Console.WriteLine();
 
-        Fraction oneThird = new Fraction(1, 3);
+        Fraction oneThird = new(1, 3);
         Console.WriteLine(oneThird.GetFractionString());
         Console.WriteLine(oneThird.GetDecimalValue());
         Console.WriteLine();
