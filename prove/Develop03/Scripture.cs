@@ -5,6 +5,8 @@ class Scripture{
     private List<Word> _words = new List<Word>();
     // creates a list of words as a class
 
+    private int _hiddenWordAmount;
+
     private Random random = new Random();
 
     public Scripture(string reference, string scriptureString){
@@ -18,11 +20,13 @@ class Scripture{
         foreach (string word in _scriptureWords){
             _words.Add(new Word(word));
         }
+        _hiddenWordAmount = _words.Count;
     }
 
     public void DisplayScripture(){
         // clears previous iteration of the scripture
         Console.Clear();
+        Console.WriteLine(_hiddenWordAmount);
         // prints the reference
         Console.Write($"{_reference.DisplayReference()} -");
         // prints each word individually
@@ -37,6 +41,18 @@ class Scripture{
             int randomIndex = random.Next(0, _words.Count);
             // select a random item from the list and remove it
             Word randomWord = _words[randomIndex];
+            bool cont = false;
+            do {
+                if (_hiddenWordAmount !=0){
+                    if (randomWord.CheckIfHidden() == true){
+                        randomIndex = random.Next(0, _words.Count);
+                        randomWord = _words[randomIndex];
+                    } else {
+                        _hiddenWordAmount--;
+                        cont = true;
+                    }
+                } else cont = true;
+            } while(cont == false);
             randomWord.HideWord();
         }
     }
