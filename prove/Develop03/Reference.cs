@@ -9,7 +9,7 @@ class Reference{
         _reference = reference;
     }
     // returns reference string
-    public string DisplayReference(){
+    public string GetReference(){
         return _reference;
     }
 }

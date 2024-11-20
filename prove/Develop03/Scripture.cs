@@ -26,14 +26,15 @@ class Scripture{
     public void DisplayScripture(){
         // clears previous iteration of the scripture
         Console.Clear();
-        Console.WriteLine(_hiddenWordAmount);
         // prints the reference
-        Console.Write($"{_reference.DisplayReference()} -");
+        Console.Write($"{_reference.GetReference()} -");
         // prints each word individually
         foreach (Word word in _words){
             Console.Write($" {word.GetWord()}");
         }
         Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine("Press 'enter' to hide more words or 'quit' to exit");
     }
     public void HideWords(){
         for (int i = 0; i < 3; i++){
