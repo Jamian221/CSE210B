@@ -16,13 +16,17 @@ class Program
 
         while (finish == false){
             //wait for enter key
-            Console.ReadLine();
-            //hide random words
-            scripture.HideWords();
-            //display scripture
-            scripture.DisplayScripture();
-            //checks if the program is done
-            finish = scripture.CheckIfDone();   
+            string input = Console.ReadLine();
+            if (input == "quit"){
+                finish = true;
+            } else{
+                //hide random words
+                scripture.HideWords();
+                //display scripture
+                scripture.DisplayScripture();
+                //checks if the program is done
+                finish = scripture.CheckIfDone();   
+            }
         }
     }
 }
