@@ -3,8 +3,8 @@
     public static void Main(string[] args)
     {
         Console.WriteLine("Hey Bob");
-        Person bob = new("bob", "Billy", 37);
+        Police policeBob = new("bob", "Billy", 37, ["Tazer", "battarang", "pistol"]);
 
-        Console.WriteLine(bob.GetPersonInfo());
+        Console.WriteLine(policeBob.GetPoliceInfo());
     }
 }
