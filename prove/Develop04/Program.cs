@@ -7,8 +7,8 @@ class Program
     {
         Menu menu = new();
         menu.DisplayMenu();
-        int menuOption = menu.GetInput();
-        switch(menuOption){
+        menu.GetInput();
+        switch(menu.ReturnChoice()){
             case 1:
                 // Breathing
                 break;

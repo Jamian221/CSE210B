@@ -12,11 +12,14 @@ class Menu
         }
         Console.WriteLine();
     }
-    public int GetInput(){
+    public void GetInput(){
         Console.Write("Select a choice from the menu: ");
         _menuChoice = int.Parse(Console.ReadLine());
-        return _menuChoice;
+        // return _menuChoice;
     }  
+    public int ReturnChoice(){
+        return _menuChoice;
+    }
     public void Quit(){
         Environment.Exit(0);
     }
