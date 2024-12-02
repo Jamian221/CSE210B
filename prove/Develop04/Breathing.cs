@@ -15,19 +15,23 @@ class Breathing :Activity
             Console.Write($"\b \b{i+1}");
             Thread.Sleep(1000);
         }
-        Console.WriteLine($"Breath out for {outTime}...");
+        Console.WriteLine();
+        Console.Write($"Breath out for {outTime}...");
         for (int i = 0; i < outTime; i++){
             Console.Write($"\b \b{i+1}");
             Thread.Sleep(1000);
         }
+        Console.WriteLine();
     }
     public void BreathingActivity(){
+        Console.Clear();
         int currentTime = 0;
-        while (GetActivityTime() <= currentTime){
+        while (GetActivityTime() >= currentTime){
             Random random = new Random();
             int inTime = random.Next(4, 11);
             int outTime = random.Next(4, 11);
             BreathingSet(inTime, outTime);
+            Console.WriteLine();
             int setTime = inTime + outTime;
             currentTime += setTime;
         }

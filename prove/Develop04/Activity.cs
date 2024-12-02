@@ -17,6 +17,21 @@ class Activity
     protected int GetActivityTime(){
         return _length;
     }
+    public void Animation(){
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        for (int i = 0; i < 10; i++){
+            Console.Write("\b \b/");
+            Thread.Sleep(100);
+            Console.Write("\b \b-");
+            Thread.Sleep(100);
+            Console.Write("\b \b\\");
+            Thread.Sleep(100);
+            Console.Write("\b \b|");
+            Thread.Sleep(100);
+
+        }
+    }
     protected void SetDescription(string description){
         _description = description;
     }
@@ -28,6 +43,7 @@ class Activity
     }
     
     public void StartMessage(){
+        Console.Clear();
         Console.WriteLine($"Welcome to the {_name} activity!");
     }
 }

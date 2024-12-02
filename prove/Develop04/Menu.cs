@@ -7,6 +7,7 @@ class Menu
     
     private int _menuChoice;
     public void DisplayMenu(){
+        Console.Clear();
         Console.WriteLine("Menu Options:");
         foreach (string option in _menuOptions){
             Console.WriteLine(option);

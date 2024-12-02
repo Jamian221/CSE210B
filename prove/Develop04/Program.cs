@@ -19,6 +19,7 @@ class Program
                     breathingActivity.StartMessage();
                     breathingActivity.DisplayDescription();
                     breathingActivity.SetActivityTime();
+                    breathingActivity.Animation();
                     breathingActivity.BreathingActivity();
                     break;
                 case 2:
