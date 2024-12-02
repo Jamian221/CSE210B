@@ -15,6 +15,7 @@ class Program
                 breathingActivity.StartMessage();
                 breathingActivity.DisplayDescription();
                 breathingActivity.SetActivityTime();
+                breathingActivity.BreathingSet(5, 5);
 
                 break;
             case 2:
