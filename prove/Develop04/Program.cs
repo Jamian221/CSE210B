@@ -11,6 +11,11 @@ class Program
         switch(menu.ReturnChoice()){
             case 1:
                 // Breathing
+                Breathing breathingActivity = new("breathing");
+                breathingActivity.StartMessage();
+                breathingActivity.BreathingDescription();
+                breathingActivity.SetActivityTime();
+
                 break;
             case 2:
                 // Reflecting
