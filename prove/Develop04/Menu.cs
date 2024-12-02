@@ -2,6 +2,7 @@ using System.Net.Quic;
 
 class Menu
 {
+    private bool _quit = false;
     private List<string> _menuOptions = new List<string>{"1. Start Breathing Activity", "2. Start Reflecting Activity", "3. Start Listing Activity", "4. Quit"};
     
     private int _menuChoice;
@@ -21,7 +22,10 @@ class Menu
         return _menuChoice;
     }
     public void Quit(){
-        Environment.Exit(0);
+        _quit = true;
+    }
+    public bool ReturnQuit(){
+        return _quit;
     }
     public void DisplayEntries(){
 

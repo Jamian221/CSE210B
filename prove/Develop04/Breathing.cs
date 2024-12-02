@@ -1,4 +1,5 @@
 using System.Data;
+using System.Transactions;
 
 class Breathing :Activity
 {
@@ -8,17 +9,28 @@ class Breathing :Activity
         SetDescription("This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.");
 
     }
-    public void BreathingSet(int inTime, int outTime){
-        Console.Write("Breath in... ");
+    private void BreathingSet(int inTime, int outTime){
+        Console.Write($"Breath in for {inTime}... ");
         for (int i = 0; i < inTime; i++){
             Console.Write($"\b \b{i+1}");
             Thread.Sleep(1000);
         }
-        Console.WriteLine("Breath out...");
-        for (int i = 0; i < inTime; i++){
+        Console.WriteLine($"Breath out for {outTime}...");
+        for (int i = 0; i < outTime; i++){
             Console.Write($"\b \b{i+1}");
             Thread.Sleep(1000);
         }
     }
-
+    public void BreathingActivity(){
+        int currentTime = 0;
+        while (GetActivityTime() <= currentTime){
+            Random random = new Random();
+            int inTime = random.Next(4, 11);
+            int outTime = random.Next(4, 11);
+            BreathingSet(inTime, outTime);
+            int setTime = inTime + outTime;
+            currentTime += setTime;
+        }
+        
+    }
 }

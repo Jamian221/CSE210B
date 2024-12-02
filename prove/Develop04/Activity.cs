@@ -14,6 +14,9 @@ class Activity
         Console.Write("How long, in seconds, would you like for your session? ");
         _length = int.Parse(Console.ReadLine());
     }
+    protected int GetActivityTime(){
+        return _length;
+    }
     protected void SetDescription(string description){
         _description = description;
     }
