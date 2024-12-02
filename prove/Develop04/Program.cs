@@ -25,6 +25,8 @@ class Program
                 case 2:
                     // Reflecting
                     Reflecting reflectingActivity = new();
+                    reflectingActivity.StartMessage();
+                    reflectingActivity.DisplayDescription();
                     break;
                 case 3:
                     // listing
