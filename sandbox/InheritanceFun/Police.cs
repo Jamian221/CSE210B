@@ -12,6 +12,6 @@ class Police : Person{
         foreach (string weapon in _weapons){
             weapons = $"{weapons}{weapon}, ";
         }
-        return $"{weapons}{base.GetPersonInfo()}";
+        return $"{weapons}";
     }
 }

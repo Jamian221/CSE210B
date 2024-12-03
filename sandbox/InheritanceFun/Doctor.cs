@@ -12,6 +12,7 @@ class Doctor : Person{
         foreach (string tool in _tools){
             tools = $"{tools}{tool}, ";
         }
-        return $"{tools}{base.GetPersonInfo()}";
+        return $"{tools}{GetBaseInfo()}";
     }
+
 }
