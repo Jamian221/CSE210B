@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 class Activity 
@@ -17,20 +18,24 @@ class Activity
     protected int GetActivityTime(){
         return _length;
     }
-    public void Animation(){
-        Console.Clear();
-        Console.WriteLine("Get ready...");
-        for (int i = 0; i < 10; i++){
+    protected void Animation(int seconds){
+        for (int i = 0; i < seconds; i++){
             Console.Write("\b \b/");
-            Thread.Sleep(100);
+            Thread.Sleep(125);
             Console.Write("\b \b-");
-            Thread.Sleep(100);
+            Thread.Sleep(125);
             Console.Write("\b \b\\");
-            Thread.Sleep(100);
+            Thread.Sleep(125);
             Console.Write("\b \b|");
-            Thread.Sleep(100);
+            Thread.Sleep(125);
 
         }
+        Console.Write("\b \b");
+    }
+    public void GetReady(){
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        Animation(3);
     }
     protected void SetDescription(string description){
         _description = description;
@@ -44,6 +49,14 @@ class Activity
     
     public void StartMessage(){
         Console.Clear();
-        Console.WriteLine($"Welcome to the {_name} activity!");
+        Console.WriteLine($"Welcome to the {_name} Activity!");
+    }
+    public void EndMessage(){
+        Console.WriteLine();
+        Console.WriteLine("Well Done!");
+        Animation(3);
+        Console.WriteLine();
+        Console.WriteLine($"You have completed {_length} seconds of the {_name} activity!");
+        Animation(3);
     }
 }

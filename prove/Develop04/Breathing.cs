@@ -16,7 +16,7 @@ class Breathing :Activity
             Thread.Sleep(1000);
         }
         Console.WriteLine();
-        Console.Write($"Breath out for {outTime}...");
+        Console.Write($"Now breath out for {outTime}...");
         for (int i = 0; i < outTime; i++){
             Console.Write($"\b \b{i+1}");
             Thread.Sleep(1000);
