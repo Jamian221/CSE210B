@@ -7,11 +7,11 @@ class Police : Person{
         _weapons = weapons;
     }
 
-    public string GetPoliceInfo(){
+    public override string GetPersonInfo(){
         string weapons = "";
         foreach (string weapon in _weapons){
             weapons = $"{weapons}{weapon}, ";
         }
-        return $"{weapons}{GetPersonInfo()}";
+        return $"{weapons}{base.GetPersonInfo()}";
     }
 }

@@ -7,11 +7,11 @@ class Doctor : Person{
         _tools = tools;
     }
 
-    public string GetDoctorInfo(){
+    public override string GetPersonInfo(){
         string tools = "";
         foreach (string tool in _tools){
             tools = $"{tools}{tool}, ";
         }
-        return $"{tools}{GetPersonInfo()}";
+        return $"{tools}{base.GetPersonInfo()}";
     }
 }

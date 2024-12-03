@@ -10,7 +10,10 @@ class Person
         _age = age;
     }
 
-    public string GetPersonInfo(){
+    public virtual string GetPersonInfo(){
         return $"{_firstName}, {_lastName}, {_age}";
+    }
+    public void SetPersonFirstName(string newFirstName){
+        _firstName = newFirstName;
     }
 }
