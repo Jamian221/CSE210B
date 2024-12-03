@@ -19,7 +19,7 @@ class Activity
         return _length;
     }
     protected void Animation(int seconds){
-        for (int i = 0; i < seconds; i++){
+        for (int i = 0; i < seconds*2; i++){
             Console.Write("\b \b/");
             Thread.Sleep(125);
             Console.Write("\b \b-");
