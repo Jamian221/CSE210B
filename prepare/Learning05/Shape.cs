@@ -1,5 +1,6 @@
 class Shape{
     private string _color;
+    protected string _shape;
     public Shape(string color){
         _color = color;
     }
@@ -12,5 +13,8 @@ class Shape{
     }
     public void SetColor(string color){
         _color = color;
+    }
+    public string GetShape(){
+        return _shape;
     }
 }

@@ -4,6 +4,7 @@ class Rectangle :Shape{
     public Rectangle(string color, double length, double width) :base(color){
         _length = length;
         _width = width;
+        _shape = "Rectangle";
     }
 
     public override double GetArea(){
