@@ -40,7 +40,7 @@ class Activity
     protected void SetDescription(string description){
         _description = description;
     }
-        public void DisplayDescription(){
+    public void DisplayDescription(){
         Console.WriteLine();
         Console.WriteLine(_description);
         Console.WriteLine();
