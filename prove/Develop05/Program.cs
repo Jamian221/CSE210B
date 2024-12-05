@@ -4,6 +4,32 @@ class Program
 {
     static void Main(string[] args)
     {
-        
+        Menu menu = new Menu();
+        while(menu.ReturnQuit() != true){
+            Console.Clear();
+            menu.DisplayMenu();
+            menu.GetInput();
+            switch(menu.ReturnChoice()){
+                case 1:
+                    // Create new goal
+                    break;
+                case 2:
+                    // List goals
+                    break;
+                case 3:
+                    // Save goals
+                    break;
+                case 4:
+                    // load goals
+                    break;
+                case 5:
+                    // record event
+                    break;
+                case 6:
+                    // quit
+                    menu.Quit();
+                    break;
+            }
+        }
     }
 }
