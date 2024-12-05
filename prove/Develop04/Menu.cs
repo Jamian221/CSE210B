@@ -28,8 +28,4 @@ class Menu
     public bool ReturnQuit(){
         return _quit;
     }
-    public void DisplayEntries(){
-
-    }
-    
 }
