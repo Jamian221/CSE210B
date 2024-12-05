@@ -1,0 +1,2 @@
+class SimpleGoal :Goal{
+}
