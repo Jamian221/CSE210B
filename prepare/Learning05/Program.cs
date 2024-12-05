@@ -11,7 +11,6 @@ class Program
         shapes.Add(square);
         shapes.Add(rectangle);
         shapes.Add(circle);
-
         foreach (Shape shape in shapes){
             Console.WriteLine($"Shape: {shape.GetShape()}, Color: {shape.GetColor()}, Area: {shape.GetArea()}");
         }
