@@ -7,4 +7,13 @@ class SimpleGoal :Goal{
     {
         throw new NotImplementedException();
     }
+    public override string ReturnStatus()
+    {
+        if (_isComplete == true){
+            return $"[x]";
+        }
+        else{
+            return "[ ]";
+        }
+    }
 }

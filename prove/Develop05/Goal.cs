@@ -1,6 +1,6 @@
 abstract class Goal{
     private int points;
-    private bool _isComplete = false;
+    protected bool _isComplete = false;
     private string _goalType;
     private string _description;
     private string _name;
@@ -8,4 +8,5 @@ abstract class Goal{
         return "";
     }
     public override abstract string ToString();
+    public abstract string ReturnStatus();
 }

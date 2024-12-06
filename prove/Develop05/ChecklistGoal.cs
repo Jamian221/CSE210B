@@ -7,4 +7,8 @@ class ChecklistGoal :Goal{
     {
         throw new NotImplementedException();
     }
+    public override string ReturnStatus()
+    {
+        throw new NotImplementedException();
+    }
 }
