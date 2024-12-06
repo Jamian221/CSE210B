@@ -1,6 +1,10 @@
 class EternalGoal :Goal{
+    private int _timesDone;
+    public EternalGoal(int points, int timesDone, string name, string description, string goalType = "Checklist Goal") :base(points, goalType, description, name){
+        _timesDone = timesDone;
+    }
     
-    public override string ReturnString()
+    public override string ReturnInfo()
     {
         return "";
     }

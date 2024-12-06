@@ -1,5 +1,8 @@
 class SimpleGoal :Goal{
-    public override string ReturnString()
+    public SimpleGoal(int points, string description, string name, string goalType = "Simple Goal") :base(points, goalType, description, name){
+
+    }
+    public override string ReturnInfo()
     {
         return "";
     }
