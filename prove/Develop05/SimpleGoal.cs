@@ -3,4 +3,8 @@ class SimpleGoal :Goal{
     {
         return "";
     }
+    public override string ToString()
+    {
+        throw new NotImplementedException();
+    }
 }

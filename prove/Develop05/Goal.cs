@@ -7,4 +7,5 @@ abstract class Goal{
     public virtual string ReturnString(){
         return "";
     }
+    public override abstract string ToString();
 }

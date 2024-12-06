@@ -3,4 +3,8 @@ class ChecklistGoal :Goal{
     {
         return "";
     }
+    public override string ToString()
+    {
+        throw new NotImplementedException();
+    }
 }

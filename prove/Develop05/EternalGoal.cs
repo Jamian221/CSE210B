@@ -3,4 +3,8 @@ class EternalGoal :Goal{
     {
         return "";
     }
+    public override string ToString()
+    {
+        throw new NotImplementedException();
+    }
 }
