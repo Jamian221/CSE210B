@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
         Menu menu = new Menu();
+        Goals goals = new Goals();
         while(menu.ReturnQuit() != true){
             Console.Clear();
             menu.DisplayMenu();
@@ -12,6 +13,7 @@ class Program
             switch(menu.ReturnChoice()){
                 case 1:
                     // Create new goal
+                    goals.CreateGoal();
                     break;
                 case 2:
                     // List goals

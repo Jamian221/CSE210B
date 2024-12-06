@@ -1,7 +1,9 @@
 class ChecklistGoal :Goal{
     private int _timesToDone;
-    public ChecklistGoal(int points, int timesToDone, string name, string description, string goalType = "Checklist Goal") :base(points, goalType, description, name){
+    private int _pointsWhenFinished;
+    public ChecklistGoal(int points, int pointsWhenFinished, int timesToDone, string name, string description, string goalType = "Checklist Goal") :base(points, goalType, description, name){
         _timesToDone = timesToDone;
+        _pointsWhenFinished = pointsWhenFinished;
     }
     public override string ReturnInfo()
     {
