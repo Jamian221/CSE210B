@@ -6,8 +6,10 @@ class Menu
     private List<string> _menuOptions = new List<string>{"1. Create new goal", "2. List Goals", "3. Save goals", "4. Load goals", "5. Record Event", "6. Quit"};
     
     private int _menuChoice;
-    public void DisplayMenu(){
+    public void DisplayMenu(Goals goals){
         Console.Clear();
+        Console.WriteLine($"You have {goals.GetPoints()} points.");
+        Console.WriteLine();
         Console.WriteLine("Menu Options:");
         foreach (string option in _menuOptions){
             Console.WriteLine(option);

@@ -1,12 +1,21 @@
 class Goals{
     private List<Goal> _goals = new List<Goal>();
     private int _points;
-    private int _activeGoals;
-    private int _finishedGoals;
+    private int _activeGoals = 0;
+    private int _finishedGoals = 0;
     public void ListGoals(){
+        Console.WriteLine("The goals are: ");
+        int times_iterated = 1;
         foreach (Goal goal in _goals){
-            Console.WriteLine($"{goal.ReturnStatus()} {goal.ReturnInfo()}");
+            Console.WriteLine($"{times_iterated}. {goal.ReturnStatus()} {goal.ReturnInfo()}");
+            times_iterated++;
         }
+        Console.WriteLine();
+        Console.Write("Press enter to continue");
+        Console.ReadLine();
+    }
+    public int GetPoints(){
+        return _points;
     }
     public void CreateGoal(){
         int goalChoice;
@@ -23,7 +32,7 @@ class Goals{
         Console.WriteLine("    3. Checklist Goal");
         Console.Write("Which type of goal would you like to create? ");
         goalChoice = int.Parse(Console.ReadLine());
-        Console.Write("What is the namne of your goal? ");
+        Console.Write("What is the name of your goal? ");
         name = Console.ReadLine();
         Console.Write("What is a short description of it? ");
         description = Console.ReadLine();

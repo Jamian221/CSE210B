@@ -7,8 +7,7 @@ class Program
         Menu menu = new Menu();
         Goals goals = new Goals();
         while(menu.ReturnQuit() != true){
-            Console.Clear();
-            menu.DisplayMenu();
+            menu.DisplayMenu(goals);
             menu.GetInput();
             switch(menu.ReturnChoice()){
                 case 1:
@@ -17,6 +16,7 @@ class Program
                     break;
                 case 2:
                     // List goals
+                    goals.ListGoals();
                     break;
                 case 3:
                     // Save goals

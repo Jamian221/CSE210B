@@ -4,16 +4,13 @@ class EternalGoal :Goal{
         
     }
     
-    public override string ReturnInfo()
-    {
-        return "";
-    }
+
     public override string ToString()
     {
         throw new NotImplementedException();
     }
     public override string ReturnStatus()
     {
-        throw new NotImplementedException();
+        return $"[{_timesDone}]";
     }
 }
