@@ -15,4 +15,5 @@ abstract class Goal{
     }
     public override abstract string ToString();
     public abstract string ReturnStatus();
+    public abstract int GoalComplete();
 }
