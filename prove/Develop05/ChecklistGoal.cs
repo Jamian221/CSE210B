@@ -1,10 +1,11 @@
 class ChecklistGoal :Goal{
     private int _timesToDone;
-    private int _timesDone = 0;
+    private int _timesDone;
     private int _pointsWhenFinished;
-    public ChecklistGoal(int points, int pointsWhenFinished, int timesToDone, string description, string goalType = "Checklist Goal") :base(points, goalType, description){
+    public ChecklistGoal(int points, int pointsWhenFinished, int timesToDone, string description, int timesDone = 0, bool isComplete = false, string goalType = "Checklist Goal") :base(points, goalType, description){
         _timesToDone = timesToDone;
         _pointsWhenFinished = pointsWhenFinished;
+        _timesDone = timesDone;
     }
     public override int GetPoints()
     {
@@ -34,7 +35,7 @@ class ChecklistGoal :Goal{
     }
     public override string ToString()
     {
-        throw new NotImplementedException();
+        return $"{_goalType},{_description},{_points},{_pointsWhenFinished},{_timesDone},{_timesToDone},{_isComplete}";
     }
     public override string ReturnStatus()
     {

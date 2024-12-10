@@ -23,9 +23,11 @@ class Program
                     break;
                 case 3:
                     // Save goals
+                    goals.Save();
                     break;
                 case 4:
                     // load goals
+                    goals.Load();
                     break;
                 case 5:
                     // record event

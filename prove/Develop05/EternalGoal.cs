@@ -1,7 +1,7 @@
 class EternalGoal :Goal{
     private int _timesDone = 0;
-    public EternalGoal(int points, string description, string goalType = "Checklist Goal") :base(points, goalType, description){
-        
+    public EternalGoal(int points, string description, int timesDone = 0, string goalType = "Eternal Goal") :base(points, goalType, description){
+        _timesDone = timesDone;
     }  
     public override int GoalComplete(){
         _timesDone++;
@@ -9,7 +9,7 @@ class EternalGoal :Goal{
     }
     public override string ToString()
     {
-        return $"{_goalType},{_description},{_points}{_timesDone}";
+        return $"{_goalType},{_description},{_points},{_timesDone}";
     }
     public override string ReturnStatus()
     {

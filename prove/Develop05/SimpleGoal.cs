@@ -1,6 +1,6 @@
 class SimpleGoal :Goal{
-    public SimpleGoal(int points, string description, string goalType = "Simple Goal") :base(points, goalType, description){
-
+    public SimpleGoal(int points, string description, bool isComplete = false, string goalType = "Simple Goal") :base(points, goalType, description){
+        _isComplete = isComplete;
     }
     public override int GoalComplete()
     {
@@ -9,8 +9,9 @@ class SimpleGoal :Goal{
     }
     public override string ToString()
     {
-        throw new NotImplementedException();
+        return $"{_goalType},{_description},{_points},{_isComplete}";
     }
+
     public override string ReturnStatus()
     {
         if (_isComplete == true){

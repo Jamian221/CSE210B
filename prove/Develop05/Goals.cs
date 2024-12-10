@@ -101,8 +101,48 @@ class Goals{
 
         using (StreamWriter saveFile = new StreamWriter(fileName)){
             foreach(KeyValuePair<string, Goal> pair in _allGoals){
-                
+                saveFile.WriteLine($"{pair.Key},{pair.Value}");
             }
         }
+        Console.WriteLine("Saved successfully!");
+        Console.Write("Press 'enter' to continue");
+        Console.ReadLine();
+    }
+    public void Load(){
+        Console.Write("What is the name of the file you'd like to load from? ");
+        string fileName = Console.ReadLine();
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+
+        foreach (string line in lines){
+            string[] parts = line.Split(",");
+
+            string name = parts[0];
+            string goalType = parts[1];
+            string description = parts[2];
+            int points = int.Parse(parts[3]);
+
+            if (goalType == "Eternal Goal"){
+                int timesDone = int.Parse(parts[4]);
+                _allGoals.Add(name, new EternalGoal(points, description, timesDone));
+            }else if (goalType == "Checklist Goal"){
+                int pointsWhenFinished = int.Parse(parts[4]);
+                int timesDone = int.Parse(parts[5]);
+                int timesToDone = int.Parse(parts[6]);
+                bool isComplete = bool.Parse(parts[7]);
+                _allGoals.Add(name, new ChecklistGoal(points, pointsWhenFinished, timesToDone, description, timesDone, isComplete));
+
+            }else if (goalType == "Simple Goal"){
+                bool isComplete = bool.Parse(parts[4]);
+                _allGoals.Add(name, new SimpleGoal(points, description, isComplete));
+            }else Console.WriteLine("Could not read goal type");
+
+            if (_allGoals[name].CheckIfComplete() == false){
+                _activeGoals.Add(name, _allGoals[name]);
+            }
+
+        }
+        Console.WriteLine("Saved Succesfully!");
+        Console.Write("Press 'eneter' to continue");
+        Console.ReadLine();
     }
 }
