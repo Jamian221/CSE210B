@@ -9,8 +9,8 @@ class ChecklistGoal :Goal{
     }
     public override int GetPoints()
     {
-        if ((_timesDone+1) == _timesDone){
-            return _pointsWhenFinished;
+        if ((_timesDone+1) == _timesToDone){
+            return _pointsWhenFinished + base.GetPoints();
         }
         else{
             return base.GetPoints();

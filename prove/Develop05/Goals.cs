@@ -142,7 +142,7 @@ class Goals{
 
         }
         Console.WriteLine("Saved Succesfully!");
-        Console.Write("Press 'eneter' to continue");
+        Console.Write("Press 'enter' to continue");
         Console.ReadLine();
     }
 }
