@@ -9,7 +9,7 @@ class EternalGoal :Goal{
     }
     public override string ToString()
     {
-        throw new NotImplementedException();
+        return $"{_goalType},{_description},{_points}{_timesDone}";
     }
     public override string ReturnStatus()
     {

@@ -95,4 +95,14 @@ class Goals{
                 break;
         }
     }
+    public void Save(){
+        Console.Write("What is the name of the file you'd like to write to? ");
+        string fileName = Console.ReadLine();
+
+        using (StreamWriter saveFile = new StreamWriter(fileName)){
+            foreach(KeyValuePair<string, Goal> pair in _allGoals){
+                
+            }
+        }
+    }
 }
