@@ -4,7 +4,7 @@ class Menu
 {
     private bool _quit = false;
     private List<string> _menuOptions = new List<string>{"1. Create new goal", "2. List Goals", "3. Save goals", "4. Load goals", "5. Record Event", "6. Quit"};
-    
+    private List<int> _possibleInputs = new List<int>{1, 2, 3, 4, 5, 6};
     private int _menuChoice;
     public void DisplayMenu(Goals goals){
         Console.Clear();
@@ -17,8 +17,17 @@ class Menu
         Console.WriteLine();
     }
     public void GetInput(){
-        Console.Write("Select a choice from the menu: ");
-        _menuChoice = int.Parse(Console.ReadLine());
+        bool validInput = false;
+        while (validInput == false){
+            Console.Write("Select a choice from the menu: ");
+            _menuChoice = int.Parse(Console.ReadLine());
+            if (_possibleInputs.Contains(_menuChoice)){
+                validInput = true;
+            }
+            else{
+                Console.WriteLine("Please input a valid menu option. ");
+            }
+        }
         // return _menuChoice;
     }  
     public int ReturnChoice(){

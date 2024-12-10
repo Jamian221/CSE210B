@@ -1,9 +1,10 @@
 class SimpleGoal :Goal{
-    public SimpleGoal(int points, string description, string name, string goalType = "Simple Goal") :base(points, goalType, description, name){
+    public SimpleGoal(int points, string description, string goalType = "Simple Goal") :base(points, goalType, description){
 
     }
     public override int GoalComplete()
     {
+        _isComplete = true;
         return _points;
     }
     public override string ToString()

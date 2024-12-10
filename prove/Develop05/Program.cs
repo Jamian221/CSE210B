@@ -16,7 +16,10 @@ class Program
                     break;
                 case 2:
                     // List goals
-                    goals.ListGoals();
+                    goals.ListGoals(goals.ReturnAllGoalsDict());
+                    Console.WriteLine();
+                    Console.Write("Press enter to continue");
+                    Console.ReadLine();
                     break;
                 case 3:
                     // Save goals
@@ -26,6 +29,7 @@ class Program
                     break;
                 case 5:
                     // record event
+                    goals.RecordEvent();
                     break;
                 case 6:
                     // quit

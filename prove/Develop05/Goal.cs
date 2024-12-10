@@ -3,17 +3,21 @@ abstract class Goal{
     protected bool _isComplete = false;
     protected string _goalType;
     protected string _description;
-    protected string _name;
-    protected Goal(int points, string goalType, string description, string name){
+    protected Goal(int points, string goalType, string description){
         _points = points;
         _goalType = goalType;
         _description = description;
-        _name = name;
     }
     public string ReturnInfo(){
-        return $"{_name} ({_description})";
+        return $"({_description})";
     }
     public override abstract string ToString();
     public abstract string ReturnStatus();
     public abstract int GoalComplete();
+    public bool CheckIfComplete(){
+        return _isComplete;
+    }
+    public virtual int GetPoints(){
+        return _points;
+    }
 }

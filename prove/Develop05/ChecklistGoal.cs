@@ -2,9 +2,18 @@ class ChecklistGoal :Goal{
     private int _timesToDone;
     private int _timesDone = 0;
     private int _pointsWhenFinished;
-    public ChecklistGoal(int points, int pointsWhenFinished, int timesToDone, string name, string description, string goalType = "Checklist Goal") :base(points, goalType, description, name){
+    public ChecklistGoal(int points, int pointsWhenFinished, int timesToDone, string description, string goalType = "Checklist Goal") :base(points, goalType, description){
         _timesToDone = timesToDone;
         _pointsWhenFinished = pointsWhenFinished;
+    }
+    public override int GetPoints()
+    {
+        if ((_timesDone+1) == _timesDone){
+            return _pointsWhenFinished;
+        }
+        else{
+            return base.GetPoints();
+        }
     }
     public override int GoalComplete(){
         if(_timesDone < _timesToDone){
