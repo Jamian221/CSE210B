@@ -6,7 +6,7 @@ class Goals{
         Console.WriteLine("The goals are: ");
         int times_iterated = 1;
         foreach (KeyValuePair<string, Goal> goal in goals){
-            Console.WriteLine($"{times_iterated}. {goal.Value.ReturnStatus()} {goal.Key} {goal.Value.ReturnInfo()}");
+            Console.WriteLine($"{times_iterated}. {goal.Value.ReturnStatus()} {goal.Key} {goal.Value.ReturnInfo()} - {goal.Value.GetPoints()} points");
             times_iterated++;
         }
     }
@@ -40,7 +40,8 @@ class Goals{
             string key = GetKey();
             Console.WriteLine($"Congradulations, you got {_activeGoals[key].GetPoints()} points!");
             Console.Write("Press enter to continue ");
-            _points+= _activeGoals[key].GoalComplete();
+            _activeGoals[key].GoalComplete();
+            _points+= _activeGoals[key].GetPoints();
             if (_activeGoals[key].CheckIfComplete() == true){
                 _activeGoals.Remove(key);
             }
@@ -124,16 +125,25 @@ class Goals{
             if (goalType == "Eternal Goal"){
                 int timesDone = int.Parse(parts[4]);
                 _allGoals.Add(name, new EternalGoal(points, description, timesDone));
+                _points += points * timesDone;
             }else if (goalType == "Checklist Goal"){
                 int pointsWhenFinished = int.Parse(parts[4]);
                 int timesDone = int.Parse(parts[5]);
                 int timesToDone = int.Parse(parts[6]);
                 bool isComplete = bool.Parse(parts[7]);
                 _allGoals.Add(name, new ChecklistGoal(points, pointsWhenFinished, timesToDone, description, timesDone, isComplete));
+                _points += points * timesDone;
+                if (isComplete == true){
+                    _points += pointsWhenFinished;
+                }
 
             }else if (goalType == "Simple Goal"){
                 bool isComplete = bool.Parse(parts[4]);
                 _allGoals.Add(name, new SimpleGoal(points, description, isComplete));
+                if (isComplete){
+                    _points += points;
+                }
+
             }else Console.WriteLine("Could not read goal type");
 
             if (_allGoals[name].CheckIfComplete() == false){

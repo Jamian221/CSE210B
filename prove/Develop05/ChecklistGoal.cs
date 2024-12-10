@@ -6,6 +6,7 @@ class ChecklistGoal :Goal{
         _timesToDone = timesToDone;
         _pointsWhenFinished = pointsWhenFinished;
         _timesDone = timesDone;
+        _isComplete = isComplete;
     }
     public override int GetPoints()
     {
