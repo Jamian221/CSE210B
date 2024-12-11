@@ -1,3 +1,3 @@
-class MinionBoss :Creature{
+// class MinionBoss :Enemy{
     
-}
+// }
