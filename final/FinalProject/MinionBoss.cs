@@ -1,0 +1,3 @@
+class MinionBoss :Creature{
+    
+}
