@@ -1,0 +1,3 @@
+I am doing an open-ended project. So far it is going really well. I have created all of the classes and methods I put into the design and a few more I realized I needed. I am a little worried about how I am going to get all of the data to go between the classes as they need to, but I'll get to that later. 
+
+https://github.com/Jamian221/CSE210B/tree/main/final

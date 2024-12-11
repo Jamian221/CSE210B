@@ -41,6 +41,9 @@ class Room {
 
     }
     public void EndRoom(){
+
+    }
+    public void CreateCharacter(){
         
     }
 
