@@ -10,6 +10,9 @@ class Room {
     private int _attackDamage;
     private int _attackerSpeed;
     private int _defenderSpeed;
+    public Room(){
+
+    }
     public Room(List<Item> reward, List<Enemy> enemies){
         _rewards = reward;
         _enemies = enemies;
@@ -44,7 +47,10 @@ class Room {
 
     }
     public void CreateCharacter(){
-        
+        Console.Write("What name would you like to give your character? ");
+        string name = Console.ReadLine().Trim();
+        Character character = new Character(name);
+        character.EquipArmor();
     }
 
 }
