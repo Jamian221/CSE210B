@@ -11,7 +11,16 @@ abstract class Item{
     virtual public string ReturnString(){
         return $"{_name}: {_description}";
     }
+    public string ReturnName(){
+        return _name;
+    }
     public string GetName(){
         return _name;
+    }
+    public virtual int ReturnDamage(){
+        return 0;
+    }
+    public virtual int ReturnSpeed(){
+        return 0;
     }
 }

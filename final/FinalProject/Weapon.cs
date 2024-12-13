@@ -9,7 +9,7 @@ class Weapon :Equipment{
     {
         return $"{base.ReturnString()} | Damage: {_damage} | Speed: {ReturnSpeed()}";
     }
-    public int ReturnDamage(){
+    public override int ReturnDamage(){
         return _damage;
     }
 }

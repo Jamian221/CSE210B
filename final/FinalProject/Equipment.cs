@@ -3,7 +3,7 @@ abstract class Equipment :Item{
     protected Equipment(string name, string description, string itemType, int speed) :base(name, description, itemType){
         _speed = speed;
     }
-    public int ReturnSpeed(){
+    public override int ReturnSpeed(){
         return _speed;
     }
 }

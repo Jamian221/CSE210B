@@ -6,4 +6,9 @@ class Armor :Equipment{
     public int ReturnHealth(){
         return _health;
     }
+    public override string ReturnString()
+    {
+        return $"{base.ReturnString()} | Health: {_health} | Speed: {ReturnSpeed()}";
+    }
+
 }

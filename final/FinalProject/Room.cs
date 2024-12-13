@@ -50,7 +50,10 @@ class Room {
         Console.Write("What name would you like to give your character? ");
         string name = Console.ReadLine().Trim();
         Character character = new Character(name);
+        Console.WriteLine("Equip armor");
         character.EquipArmor();
+        Console.WriteLine("Equip Weapon");
+        character.EquipWeapon();
     }
 
 }
