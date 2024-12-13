@@ -1,6 +1,6 @@
 class Character :Creature{
-    private Item _equippedWeapon = new Weapon("Sword", "basic sword", 10, 25);
-    private Item _equippedArmor = new Armor("Standard Armor", "basic armor, gets the job done", 50, 25);
+    private Item _equippedWeapon;
+    private Item _equippedArmor;
     private List<Item> _allWeapons = new List<Item>{
         new Weapon("Sword", "basic sword", 10, 25),
         new Weapon("Knives", "Fast, but low damage", 5, 75)
@@ -21,14 +21,13 @@ class Character :Creature{
     private List<Item> _consumablesInInventory = new List<Item>{};
     private int _bonusDamage = 0;
     private int _bonusSpeed = 0;
+    private int _bonusHealth = 0;
     
     public Character(string name) :base(name){
-        int maxHealth = 100;
-        _health = maxHealth;
-        _maxHealth = maxHealth;
         _armorInInventory.Add(_allArmor[0]);
         _weaponsInInventory.Add(_allWeapons[0]);
         _consumablesInInventory.Add(_allConsumables[0]);
+        _consumablesInInventory.Add(_allConsumables[1]);
 
     }
     public string CheckWeaponEquipped(){
@@ -37,8 +36,20 @@ class Character :Creature{
     public string CheckArmorEquipped(){
         return _equippedArmor.ReturnString();
     }
+    public void UseConsumable(){
+        WriteList(_consumablesInInventory);
+        Console.Write("Which one would you like to use? (press 0 if none) ");
+        int selection = int.Parse(Console.ReadLine()) - 1;
+        if (selection == -1){
+        }else{
+            _consumablesInInventory[selection].Use();
+            _bonusDamage = _consumablesInInventory[selection].ReturnDamageBonus();
+            _bonusHealth = _consumablesInInventory[selection].ReturnHealthBonus();
+            _bonusSpeed = _consumablesInInventory[selection].ReturnSpeedBonus();
+        }
+    }
     public void EquipArmor(){
-        ListList(_armorInInventory);
+        WriteList(_armorInInventory);
         Console.Write("Which one would you like to equip? ");
         int selection = int.Parse(Console.ReadLine()) - 1;
         _equippedArmor = _armorInInventory[selection];
@@ -47,7 +58,7 @@ class Character :Creature{
         Console.ReadLine();
     }
     public void EquipWeapon(){
-        ListList(_weaponsInInventory);
+        WriteList(_weaponsInInventory);
         Console.Write("Which one would you like to equip? ");
         int selection = int.Parse(Console.ReadLine()) - 1;
         _equippedWeapon = _weaponsInInventory[selection];
@@ -55,7 +66,7 @@ class Character :Creature{
         Console.Write("Press 'enter' to continue");
         Console.ReadLine();
     }
-    public void ListList(List<Item> list){
+    public void WriteList(List<Item> list){
         int timesIterated = 1;
         foreach (Item item in list){
             Console.WriteLine($"[{timesIterated}] {item.ReturnString()}");
@@ -64,6 +75,10 @@ class Character :Creature{
     }
     public void CalculateStats(){
         _damage = _bonusDamage + _equippedWeapon.ReturnDamage();
-        _speed = _equippedWeapon.ReturnSpeed() + _equippedArmor.ReturnSpeed();
+        _speed = _equippedWeapon.ReturnSpeed() + _equippedArmor.ReturnSpeed() + _bonusSpeed;
+        _health = _equippedArmor.ReturnHealth() + _bonusHealth;
+    }
+    public string ReturnStats(){
+        return $"Damage: {_damage} | Speed: {_speed} | Health: {_health}";
     }
 }

@@ -9,16 +9,16 @@ class Consumable :Item{
         _speedBonus = speedBonus;
         _uses = uses;
     }
-    public int ReturnHealthBonus(){
+    public override int ReturnHealthBonus(){
         return _healthBonus;
     }
-    public int ReturnSpeedBonus(){
+    public override int ReturnSpeedBonus(){
         return _speedBonus;
     }
-    public int ReturnDamageBonus(){
+    public override int ReturnDamageBonus(){
         return _damageBonus;
     }
-    public void Use(){
+    public override void Use(){
         _uses++;
     }
     public bool IsUsed(){

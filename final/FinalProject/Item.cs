@@ -20,7 +20,16 @@ abstract class Item{
     public virtual int ReturnDamage(){
         return 0;
     }
+    public virtual int ReturnHealth(){
+        return 0;
+    }
     public virtual int ReturnSpeed(){
         return 0;
     }
+    public virtual void Use(){
+    }
+    public virtual int ReturnDamageBonus(){ return 0;}
+    public virtual int ReturnHealthBonus(){ return 0;}
+    public virtual int ReturnSpeedBonus(){ return 0;}
+    
 }

@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using System.Runtime.CompilerServices;
 
 class Room {
@@ -13,9 +14,19 @@ class Room {
     public Room(){
 
     }
-    public Room(List<Item> reward, List<Enemy> enemies){
-        _rewards = reward;
-        _enemies = enemies;
+    // public Room(List<Item> reward, List<Enemy> enemies){
+    //     _rewards = reward;
+    //     _enemies = enemies;
+    // }
+    public void SetRoom(){
+        Console.WriteLine("Equip armor");
+        _player.EquipArmor();
+        Console.WriteLine("Equip Weapon");
+        _player.EquipWeapon();
+        Console.WriteLine("Use consumables");
+        _player.UseConsumable();
+        _player.CalculateStats();
+        
     }
     public void SetAttackerStats(){
         _attackerSpeed = _attacker.ReturnSpeed();
@@ -49,11 +60,7 @@ class Room {
     public void CreateCharacter(){
         Console.Write("What name would you like to give your character? ");
         string name = Console.ReadLine().Trim();
-        Character character = new Character(name);
-        Console.WriteLine("Equip armor");
-        character.EquipArmor();
-        Console.WriteLine("Equip Weapon");
-        character.EquipWeapon();
+        _player = new Character(name);
     }
 
 }
