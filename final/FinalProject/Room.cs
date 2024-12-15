@@ -115,6 +115,11 @@ class Room {
 
         return randomNumber <= _chanceOfHitting; // if random number is less than the chance of hitting, it returns true, otherwise, false. 
     }
+    public bool RoomDone(){
+        if (_enemies.Count() == 0){
+            return true;
+        } else return false;
+    }
     public void EndFight(){
 
     }

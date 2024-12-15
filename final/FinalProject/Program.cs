@@ -10,12 +10,9 @@ class Program
 
         // room setup 
         room.SetRoom([0, 0, 0]);
-        room.PlayerFight();
-        room.PlayerFight();
-        room.PlayerFight();
-        room.PlayerFight();
-        room.PlayerFight();
-        room.ListEnemies();
+        do{
+            room.PlayerFight();
+        }while (room.RoomDone() == false);
 
 
     }
