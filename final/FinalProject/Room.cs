@@ -11,10 +11,10 @@ class Room {
     private Creature _defender;
     private double _chanceOfHitting;
     private int _attackDamage;
-    private int _attackerSpeed;
-    private int _defenderSpeed;
+    private double _attackerSpeed;
+    private double _defenderSpeed;
     public Room(){
-        _allEnemies.Add(new Minion());
+        
     }
     public void SetRoom(int[] enemies){
         SetEnemies(enemies);
@@ -38,14 +38,17 @@ class Room {
         int selection = int.Parse(Console.ReadLine()) -1;
         SetDefender(_enemies[selection]);
         CalculateChanceOfHitting();
-        Console.WriteLine($"Chance of hitting - {_chanceOfHitting}%");
+        Console.WriteLine($"Chance of hitting - {_chanceOfHitting * 100}%");
         Console.Write("Press 'enter' to fight!");
         Console.ReadLine();
         FightAnimation();
         bool hit = IsHit();
         if (hit){
-            Console.WriteLine("You hit!");
+            Console.WriteLine($"You hit for {_attackDamage} damage!");
             _enemies[selection].TakeDamage(_attackDamage);
+            if (_enemies[selection].ReturnDead()){
+                _enemies.RemoveAt(selection);
+            }
         }
         else{
             Console.WriteLine("You missed!");
@@ -100,10 +103,11 @@ class Room {
     }
     public void DealDamage(Creature creature){
         creature.TakeDamage(_attackDamage);
+
     }
     public void CalculateChanceOfHitting(){
-        _chanceOfHitting = _attackerSpeed / _defenderSpeed * 40;
-        _chanceOfHitting = Math.Round(_chanceOfHitting, 2);
+        double firstPart = _attackerSpeed / _defenderSpeed;
+        _chanceOfHitting =  firstPart * .3;
     }
     public bool IsHit(){
         Random random = new Random();
@@ -124,7 +128,9 @@ class Room {
     }
     public void SetEnemies(int[] enemyCodes){
         foreach(int enemy in enemyCodes){
-            _enemies.Add(_allEnemies[enemy]);
+            if (enemy == 0){
+                _enemies.Add(new Minion());
+            }
         }
     }
 

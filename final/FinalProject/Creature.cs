@@ -19,6 +19,9 @@ abstract class Creature{
     }
     public void TakeDamage(int damage){
         _health -= damage;
+        if (_health <= 0){
+            _isDead = true;
+        }
     }
     public string ReturnName(){
         return _name;
