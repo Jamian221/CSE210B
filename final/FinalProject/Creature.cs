@@ -21,5 +21,8 @@ abstract class Creature{
     public void TakeDamage(int damage){
         _health -= damage;
     }
+    public string ReturnName(){
+        return _name;
+    }
 
 }

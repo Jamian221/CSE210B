@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 class Room {
     private Character _player;
     private List<Item> _rewards = new List<Item>();
-    private List<Creature> _allEnemies = new List<Creature>();
+    private List<Enemy> _allEnemies = new List<Enemy>();
     private List<Enemy> _enemies = new List<Enemy>();
     private Creature _attacker;
     private Creature _defender;
@@ -16,6 +16,8 @@ class Room {
         _allEnemies.Add(new Minion());
     }
     public void SetRoom(int[] enemies){
+        SetEnemies(enemies);
+        ListEnemies();
         Console.WriteLine("Equip armor");
         _player.EquipArmor();
         Console.WriteLine("Equip Weapon");
@@ -26,9 +28,14 @@ class Room {
         Console.WriteLine($"Character stats for this room - {_player.ReturnStats()}");
     }
     public void ListEnemies(){
+        int iteration = 1;
+        Console.WriteLine("Enemies in this room:");
         foreach (Enemy enemy in _enemies){
-            
+            Console.WriteLine($"[{iteration}]. {enemy.ReturnString()}");
+            iteration++;
         }
+        Console.Write("Press 'Enter' to continue");
+        Console.ReadLine();
     }
     public void SetAttackerStats(){
         _attackerSpeed = _attacker.ReturnSpeed();
@@ -64,9 +71,9 @@ class Room {
         string name = Console.ReadLine().Trim();
         _player = new Character(name);
     }
-    public void SetDefenders(int[] enemyCodes){
+    public void SetEnemies(int[] enemyCodes){
         foreach(int enemy in enemyCodes){
-
+            _enemies.Add(_allEnemies[enemy]);
         }
     }
 
