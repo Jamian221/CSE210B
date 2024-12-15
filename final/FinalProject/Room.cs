@@ -30,6 +30,9 @@ class Room {
         Console.WriteLine("Start the fight by hitting 'enter'");
         Console.ReadLine();
     }
+    public void SetUpFight(){
+        
+    }
     public void ListEnemies(){
         int iteration = 1;
         Console.WriteLine("Enemies in this room:");
