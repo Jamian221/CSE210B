@@ -31,13 +31,23 @@ class Room {
         Console.ReadLine();
     }
     public void SetUpFight(){
-        
+
     }
     public void ListEnemies(){
         int iteration = 1;
         Console.WriteLine("Enemies in this room:");
         foreach (Enemy enemy in _enemies){
             Console.WriteLine($"[{iteration}]. {enemy.ReturnString()}");
+            iteration++;
+        }
+        Console.Write("Press 'Enter' to continue");
+        Console.ReadLine();
+    }
+    public void ListRewards(){
+        int iteration = 1;
+        Console.WriteLine("Enemies in this room:");
+        foreach (Item reward in _rewards){
+            Console.WriteLine($"[{iteration}]. {reward.ReturnString()}");
             iteration++;
         }
         Console.Write("Press 'Enter' to continue");
