@@ -26,6 +26,9 @@ class Room {
         _player.UseConsumable();
         _player.CalculateStats();
         Console.WriteLine($"Character stats for this room - {_player.ReturnStats()}");
+        Console.Clear();
+        Console.WriteLine("Start the fight by hitting 'enter'");
+        Console.ReadLine();
     }
     public void ListEnemies(){
         int iteration = 1;
