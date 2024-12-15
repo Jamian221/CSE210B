@@ -23,7 +23,12 @@ class Room {
         Console.WriteLine("Use consumables");
         _player.UseConsumable();
         _player.CalculateStats();
-        Console.WriteLine($"Stats - {_player.ReturnStats()}");
+        Console.WriteLine($"Character stats for this room - {_player.ReturnStats()}");
+    }
+    public void ListEnemies(){
+        foreach (Enemy enemy in _enemies){
+            
+        }
     }
     public void SetAttackerStats(){
         _attackerSpeed = _attacker.ReturnSpeed();
