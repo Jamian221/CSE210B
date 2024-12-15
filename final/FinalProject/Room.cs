@@ -3,8 +3,9 @@ using System.Runtime.CompilerServices;
 
 class Room {
     private Character _player;
-    private List<Item> _rewards;
-    private List<Enemy> _enemies;
+    private List<Item> _rewards = new List<Item>();
+    private List<Creature> _allEnemies = new List<Creature>();
+    private List<Enemy> _enemies = new List<Enemy>();
     private Creature _attacker;
     private Creature _defender;
     private float _chanceOfHitting;
@@ -12,13 +13,9 @@ class Room {
     private int _attackerSpeed;
     private int _defenderSpeed;
     public Room(){
-
+        _allEnemies.Add(new Minion());
     }
-    // public Room(List<Item> reward, List<Enemy> enemies){
-    //     _rewards = reward;
-    //     _enemies = enemies;
-    // }
-    public void SetRoom(){
+    public void SetRoom(int[] enemies){
         Console.WriteLine("Equip armor");
         _player.EquipArmor();
         Console.WriteLine("Equip Weapon");
@@ -26,7 +23,7 @@ class Room {
         Console.WriteLine("Use consumables");
         _player.UseConsumable();
         _player.CalculateStats();
-        
+        Console.WriteLine($"Stats - {_player.ReturnStats()}");
     }
     public void SetAttackerStats(){
         _attackerSpeed = _attacker.ReturnSpeed();
@@ -61,6 +58,11 @@ class Room {
         Console.Write("What name would you like to give your character? ");
         string name = Console.ReadLine().Trim();
         _player = new Character(name);
+    }
+    public void SetDefenders(int[] enemyCodes){
+        foreach(int enemy in enemyCodes){
+
+        }
     }
 
 }

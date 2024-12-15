@@ -6,6 +6,7 @@ class Program
     {
         Room room = new Room();
         room.CreateCharacter();
+        room.SetRoom([0]);
 
     }
 }
