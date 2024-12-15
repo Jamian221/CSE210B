@@ -7,4 +7,5 @@ class Enemy :Creature{
     public virtual string ReturnString(){
         return $"{ReturnName()} - Health: {_health} | Damage: {_damage} | Speed: {_speed}";
     }
+
 }

@@ -10,7 +10,8 @@ class Program
 
         // room setup 
         room.SetRoom([0, 0, 0]);
-
+        room.PlayerFight();
+        room.ListEnemies();
 
 
     }

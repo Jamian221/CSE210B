@@ -2,7 +2,6 @@ abstract class Creature{
     protected int _health;
     private string _name;
     protected int _speed;
-    protected int _maxHealth;
     protected int _damage;
     private bool _isDead;
     protected Creature(string name){
