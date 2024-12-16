@@ -2,13 +2,13 @@ class Character :Creature{
     private Item _equippedWeapon;
     private Item _equippedArmor;
     private List<Item> _allWeapons = new List<Item>{
-        new Weapon("Sword", "basic sword", 10, 20),
-        new Weapon("Knives", "Fast, but low damage", 5, 75)
+        new Weapon("Sword", "basic sword", 20, 30),
+        new Weapon("Knives", "Fast, but low damage", 15, 60)
     };
     private List<Item> _allArmor = new List<Item>{
-        new Armor("Basic armor", "Well rounded armor", 100, 20),
-        new Armor("Light armor", "Fast, but not much health", 70, 75),
-        new Armor("Heavy Armor", "lots of health, but slows you down", 200, 15)
+        new Armor("Basic armor", "Well rounded armor", 100, 30),
+        new Armor("Light armor", "Fast, but not much health", 70, 60),
+        new Armor("Heavy Armor", "lots of health, but slows you down", 200, 20)
     };
     private List<Item> _allConsumables = new List<Item>{
         new Consumable("None", "Does nothing", uses: 1000000),
@@ -67,16 +67,14 @@ class Character :Creature{
         Console.ReadLine();
     }
     public void ReceiveRewards(List<int[]> itemList){
-        foreach (int[] items in itemList){
-            foreach (int item in items){
-                _consumablesInInventory.Add(_allConsumables[item]);
-            }
-            foreach (int item in items){
-                _weaponsInInventory.Add(_allWeapons[item]);
-            }
-            foreach (int item in items){
-                _armorInInventory.Add(_allArmor[item]);
-            }
+        foreach (int item in itemList[0]){
+            _consumablesInInventory.Add(_allConsumables[item]);
+        }
+        foreach (int item in itemList[1]){
+            _weaponsInInventory.Add(_allWeapons[item]);
+        }
+        foreach (int item in itemList[2]){
+            _armorInInventory.Add(_allArmor[item]);
         }
     }
     public void WriteList(List<Item> list){
