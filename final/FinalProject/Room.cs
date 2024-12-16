@@ -33,6 +33,9 @@ class Room {
                 _rewards.Add([2]);
                 _rewards.Add([2]);
                 break;
+            case 3:
+                enemies = [1, 1, 2];
+                break;
             default:
                 Console.WriteLine("Game Completed!");
                 return;
