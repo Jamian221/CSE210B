@@ -10,7 +10,8 @@ class Program
         while (true){
 
             // room setup 
-            room.SetRoom([0, 0, 0]);
+            room.SetRoom();
+            if (room.IsRoomDone()) break;
             do{
                 room.PlayerFight();
                 if (room.IsRoomDone()) break;
@@ -18,9 +19,9 @@ class Program
             }while (room.IsRoomDone() == false);
             bool isWon = room.EndRoom();
             if (isWon == false){
-                Console.WriteLine("Game Over!");
                 break;
             }
         }
+        Console.WriteLine("Game Over");
     }
 }

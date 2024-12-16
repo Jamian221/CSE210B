@@ -14,11 +14,24 @@ class Room {
     private double _attackerSpeed;
     private double _defenderSpeed;
     private bool _hit;
-    private int _level;
+    private int _level = 1;
     public Room(){
         
     }
-    public void SetRoom(int[] enemies){
+    public void SetRoom(){
+        int[] enemies;
+        switch (_level){
+            case 1:
+                enemies = [0, 0, 0];
+                break;
+            case 2:
+                enemies = [0, 0, 0, 0, 0];
+                break;
+            default:
+                Console.WriteLine("Game Completed!");
+                return;
+            
+        }
         SetEnemies(enemies);
         ListEnemies();
         Console.WriteLine("Equip armor");
