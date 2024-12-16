@@ -57,12 +57,20 @@ class Room {
     public void PlayerFight(){
         SetAttacker(_player);
         ListEnemies();
+        Console.WriteLine($"{_player.ReturnName()}: {_player.ReturnStats()}");
+        Thread.Sleep(800);
         Console.Write("Which enemy will you attack? ");
-        int selection = int.Parse(Console.ReadLine()) -1;
+        string selectionString = Console.ReadLine();
+        while (selectionString == ""){
+            selectionString = Console.ReadLine();
+        }
+        int selection = int.Parse(selectionString) -1;
         SetDefender(_enemies[selection]);
         Fight();
         if (_hit){
             Console.WriteLine($"You hit for {_attackDamage} damage!");
+            Console.Write("Press 'enter' to continue");
+            Console.ReadLine();
             _enemies[selection].TakeDamage(_attackDamage);
             if (_enemies[selection].ReturnDead()){
                 _enemies.RemoveAt(selection);
@@ -75,6 +83,7 @@ class Room {
     public void EnemyFight(){
         SetAttacker(SelectRandomEnemy());
         SetDefender(_player);
+        CalculateChanceOfHitting();
         Console.WriteLine($"{_attacker.ReturnName()} is attacking you!");
         Console.WriteLine($"Chance of hitting - {_chanceOfHitting * 100}%");
         Thread.Sleep(2000);
@@ -123,8 +132,6 @@ class Room {
             Console.WriteLine($"[{iteration}]. {enemy.ReturnString()}");
             iteration++;
         }
-        Console.Write("Press 'Enter' to continue");
-        Console.ReadLine();
     }
     public void ListRewards(){
         int iteration = 1;

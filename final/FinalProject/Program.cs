@@ -15,6 +15,7 @@ class Program
             do{
                 room.PlayerFight();
                 if (room.IsRoomDone()) break;
+                Thread.Sleep(1000);
                 room.EnemyFight();
             }while (room.IsRoomDone() == false);
             bool isWon = room.EndRoom();
