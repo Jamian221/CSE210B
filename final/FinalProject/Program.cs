@@ -22,6 +22,7 @@ class Program
             if (isWon == false){
                 break;
             }
+            room.NextRoom();
         }
         Console.WriteLine("Game Over");
     }

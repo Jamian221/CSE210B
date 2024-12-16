@@ -25,7 +25,7 @@ class Room {
                 enemies = [0, 0, 0];
                 break;
             case 2:
-                enemies = [0, 0, 0, 0, 0];
+                enemies = [0, 0, 1, 1];
                 break;
             default:
                 Console.WriteLine("Game Completed!");
@@ -173,6 +173,9 @@ class Room {
         if (_enemies.Count() == 0){
             return true;
         } return _player.ReturnDead();
+    }
+    public void NextRoom(){
+        _level++;
     }
     public void EndFight(){
 
