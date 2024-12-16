@@ -23,6 +23,7 @@ class Program
                 break;
             }
             room.NextRoom();
+            room.EndRoom();
         }
         Console.WriteLine("Game Over");
     }

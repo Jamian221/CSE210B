@@ -66,6 +66,19 @@ class Character :Creature{
         Console.Write("Press 'enter' to continue");
         Console.ReadLine();
     }
+    public void ReceiveRewards(List<int[]> itemList){
+        foreach (int[] items in itemList){
+            foreach (int item in items){
+                _consumablesInInventory.Add(_allConsumables[item]);
+            }
+            foreach (int item in items){
+                _weaponsInInventory.Add(_allWeapons[item]);
+            }
+            foreach (int item in items){
+                _armorInInventory.Add(_allArmor[item]);
+            }
+        }
+    }
     public void WriteList(List<Item> list){
         int timesIterated = 1;
         foreach (Item item in list){

@@ -4,7 +4,7 @@ using System.Threading.Tasks.Dataflow;
 
 class Room {
     private Character _player;
-    private List<Item> _rewards = new List<Item>();
+    private List<int[]> _rewards = new List<int[]>();
     private List<Enemy> _allEnemies = new List<Enemy>();
     private List<Enemy> _enemies = new List<Enemy>();
     private Creature _attacker;
@@ -23,9 +23,15 @@ class Room {
         switch (_level){
             case 1:
                 enemies = [0, 0, 0];
+                _rewards.Add([1]);
+                _rewards.Add([1]);
+                _rewards.Add([1]);
                 break;
             case 2:
                 enemies = [0, 0, 1, 1];
+                _rewards.Add([2]);
+                _rewards.Add([2]);
+                _rewards.Add([2]);
                 break;
             default:
                 Console.WriteLine("Game Completed!");
@@ -133,16 +139,6 @@ class Room {
             iteration++;
         }
     }
-    public void ListRewards(){
-        int iteration = 1;
-        Console.WriteLine("Rewards in this room:");
-        foreach (Item reward in _rewards){
-            Console.WriteLine($"[{iteration}]. {reward.ReturnString()}");
-            iteration++;
-        }
-        Console.Write("Press 'Enter' to continue");
-        Console.ReadLine();
-    }
     public void SetAttacker(Creature creature){
         _attacker = creature;
         _attackerSpeed = _attacker.ReturnSpeed();
@@ -186,6 +182,7 @@ class Room {
             return false;
         } else{
             Console.WriteLine("You've won!");
+            _player.ReceiveRewards(_rewards);
             return true;
         }
     }
