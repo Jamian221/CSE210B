@@ -13,6 +13,8 @@ class Room {
     private int _attackDamage;
     private double _attackerSpeed;
     private double _defenderSpeed;
+    private bool _hit;
+    private int _level;
     public Room(){
         
     }
@@ -31,19 +33,22 @@ class Room {
         Console.ReadLine();
         Console.Clear();
     }
+    public void Fight(){
+        CalculateChanceOfHitting();
+        Console.WriteLine($"Chance of hitting - {_chanceOfHitting * 100}%");
+        Console.Write("Press 'enter' to fight!");
+        Console.ReadLine();
+        FightAnimation();
+        _hit = IsHit();
+    }
     public void PlayerFight(){
         SetAttacker(_player);
         ListEnemies();
         Console.Write("Which enemy will you attack? ");
         int selection = int.Parse(Console.ReadLine()) -1;
         SetDefender(_enemies[selection]);
-        CalculateChanceOfHitting();
-        Console.WriteLine($"Chance of hitting - {_chanceOfHitting * 100}%");
-        Console.Write("Press 'enter' to fight!");
-        Console.ReadLine();
-        FightAnimation();
-        bool hit = IsHit();
-        if (hit){
+        Fight();
+        if (_hit){
             Console.WriteLine($"You hit for {_attackDamage} damage!");
             _enemies[selection].TakeDamage(_attackDamage);
             if (_enemies[selection].ReturnDead()){
@@ -54,19 +59,48 @@ class Room {
             Console.WriteLine("You missed!");
         }
     }
-    public void Animate(string animate){
+    public void EnemyFight(){
+        SetAttacker(SelectRandomEnemy());
+        SetDefender(_player);
+        Console.WriteLine($"{_attacker.ReturnName()} is attacking you!");
+        Console.WriteLine($"Chance of hitting - {_chanceOfHitting * 100}%");
+        Thread.Sleep(2000);
+        FightAnimation();
+        _hit = IsHit();
+        if (_hit){
+            Console.WriteLine($"You got hit for {_attackDamage} damage!");
+            _player.TakeDamage(_attackDamage);
+        }
+        else{
+            Console.WriteLine($"{_attacker.ReturnName()} missed!"); 
+        }
+    }
+    public Creature SelectRandomEnemy(){
+        // Create a random number generator
+        Random random = new Random();
+
+        // Generate a random index within the bounds of the list
+        int randomIndex = random.Next(0, _enemies.Count);
+
+        // Select the item at the random index
+        Creature selectedCreature = _enemies[randomIndex];
+
+        return selectedCreature;
+    }
+    public void Animate(string animate, string message){
         Console.WriteLine(animate);
-        Console.WriteLine("Epic Clashing!");
+        Console.WriteLine(message);
         Thread.Sleep(100);
         Console.Clear();
     }
     public void FightAnimation(){
         Console.Clear();
+        string message = "Epic clashing";
         for(int i = 0; i<5;i++){
-            Animate("/");
-            Animate("|");
-            Animate("\\");
-            Animate("-");
+            Animate("/", message);
+            Animate("|", message);
+            Animate("\\", message);
+            Animate("-", message);
         }
     }
     public void ListEnemies(){
@@ -115,16 +149,22 @@ class Room {
 
         return randomNumber <= _chanceOfHitting; // if random number is less than the chance of hitting, it returns true, otherwise, false. 
     }
-    public bool RoomDone(){
+    public bool IsRoomDone(){
         if (_enemies.Count() == 0){
             return true;
-        } else return false;
+        } return _player.ReturnDead();
     }
     public void EndFight(){
 
     }
-    public void EndRoom(){
-
+    public bool EndRoom(){
+        if (_player.ReturnDead() == true){
+            Console.WriteLine("You've lost!");
+            return false;
+        } else{
+            Console.WriteLine("You've won!");
+            return true;
+        }
     }
     public void CreateCharacter(){
         Console.Write("What name would you like to give your character? ");
