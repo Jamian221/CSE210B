@@ -189,6 +189,9 @@ class Room {
             if (enemy == 0){
                 _enemies.Add(new Minion());
             }
+            if (enemy == 1){
+                _enemies.Add(new FootSoldier());
+            }
         }
     }
 
